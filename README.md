@@ -10,7 +10,7 @@ This repository provides the complete codebase for **Cenliea** and **Cenliea+**,
 
 ## 🧭 Pipeline Overview
 
-<img src="assets/AAAI_Diagram.png" alt="CENLIEA Pipeline" width="700"/>
+<img src="assests/AAAI_Diagram.png" alt="CENLIEA Pipeline" width="700"/>
 
 ## 📌 Overview
 
