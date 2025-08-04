@@ -8,9 +8,9 @@ This repository provides the complete codebase for **Cenliea** and **Cenliea+**,
    https://openreview.net/forum?id=v4Fnw1oySH
 ---
 
-## 🧭 Pipeline Overview
+## 🧭 Pipeline
 
-<img src="assests/AAAI_Diagram.png" alt="CENLIEA Pipeline" width="500"/>
+<img src="assests/AAAI_Diagram.png" alt="CENLIEA Pipeline" width="450"/>
 
 ## 📌 Overview
 
