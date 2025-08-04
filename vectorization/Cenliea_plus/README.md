@@ -55,7 +55,7 @@ Login to Hugging Face before use:
 from huggingface_hub import login
 login(token="your_token_here")
 ```
-
+🔑 You can create or retrieve your token at https://huggingface.co/settings/tokens
 ---
 
 ## 📌 Notes
