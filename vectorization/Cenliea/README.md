@@ -1,4 +1,4 @@
-# 🧠 Cenliea: NLI-Based Embedding for Entity Alignment
+# Cenliea: Cross-encoder NLI-Based Embedding for Entity Alignment
 
 This module computes bidirectional **Natural Language Inference (NLI)** embeddings using the pretrained [MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7](https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7) model.
 
