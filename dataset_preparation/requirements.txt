@@ -1,0 +1,5 @@
+rdflib==6.3.2
+pandas==2.2.1
+scikit-learn==1.4.1
+datasets==2.18.0
+tiktoken==0.6.0
