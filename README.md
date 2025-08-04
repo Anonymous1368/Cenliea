@@ -5,7 +5,7 @@
 This repository provides the complete codebase for **Cenliea** and **Cenliea+**, two complementary pipelines for entity alignment (EA) across heterogeneous knowledge graphs (KGs). The framework combines structured input encoding, multilingual NLI-based embeddings, and LLM-augmented reasoning to offer a generalizable, explainable alignment approach.
 
 📄 For technical details, see our **anonymous paper** on OpenReview:  
-🔗 https://openreview.net/forum?id=v4Fnw1oySH
+   https://openreview.net/forum?id=v4Fnw1oySH
 ---
 
 ## 📌 Overview
@@ -30,8 +30,9 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 📖 See [`dataset_preparation/README.md`](./dataset_preparation/README.md)
 
 ---
+### [`vectorization/`](./vectorization)
 
-### [`nli_vectorization/`](./nli_vectorization)
+#### [`vectorization/Cenliea/`](./vectorization/Cenliea)
 
 - Phase 1 of Cenliea: Bidirectional NLI embeddings using [`MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7`](https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7)
 - Loads `.parquet` input datasets and outputs embeddings per pair
@@ -41,7 +42,7 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 
 ---
 
-### [`Cenliea_plus/`](./Cenliea_plus)
+#### [`vectorization/Cenliea_plus/`](./vectorization/Cenliea_plus)
 
 - Optional Phase 2: LLM-based alignment justification using [`mistralai/Mistral-7B-Instruct-v0.2`](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2)
 - Generates premise-hypothesis pairs from structured features
@@ -54,9 +55,11 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 
 ### [`ea_classifier/`](./ea_classifier)
 
-- Trains a lightweight binary classifier using NLI (or NLI+LLM) embeddings
-- Supports hyperparameter tuning and evaluation
-- Produces final `.pkl` models and `.json` evaluation statistics
+- Train and test a lightweight binary classifier using NLI or NLI+LLM embeddings.
+- Includes:
+  - `hp_tuning_train_binary_classifier.py`: Performs hyperparameter tuning and saves the trained model as a `.pkl` file.
+  - `test_binary_classifier.py`: Loads the saved model and evaluates it on a held-out test set.
+- Outputs include trained classifiers and `.json` files containing macro/micro F1 scores and confusion matrices.
 
 📖 See [`ea_classifier/README.md`](./ea_classifier/README.md)
 
