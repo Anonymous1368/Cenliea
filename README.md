@@ -15,7 +15,7 @@ The **Cenliea** pipeline uses cross-encoder NLI embeddings to assess alignment b
 ## 🧭 Pipeline
 
 <div align="center">
-  <img src="assets/AAAI_Diagram.png" alt="CENLIEA Pipeline" width="400"/>
+  <img src="./assets/AAAI_Diagram.png" alt="Cenliea Pipeline" width="400"/>
 </div>
 
 ## 📌 Overview
