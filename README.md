@@ -4,8 +4,8 @@
 
 This repository provides the complete codebase for **Cenliea** and **Cenliea+**, two complementary pipelines for entity alignment (EA) across heterogeneous knowledge graphs (KGs). The framework combines structured input encoding, multilingual NLI-based embeddings, and LLM-augmented reasoning to offer a generalizable, explainable alignment approach.
 
-📄 For technical details, see our **anonymous paper** on OpenReview:  
-   https://openreview.net/forum?id=v4Fnw1oySH
+📄 For technical details, see our [**anonymous paper**](https://openreview.net/forum?id=v4Fnw1oySH) on OpenReview:  
+
 ---
 
 ## 🧭 Pipeline
