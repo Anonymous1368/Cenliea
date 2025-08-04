@@ -102,13 +102,17 @@ login()
 
 ## 💻 Runtime Environment
 
-- Experiments conducted on Google Colab Pro:
-  - **Cenliea**: NVIDIA L4 GPU
-  - **Cenliea+**: NVIDIA A100 GPU
-- Average vectorization times:
-  - **Cenliea**: ~0.055s per sample (NLI inference only)
-  - **Cenliea+**: ~0.421s per sample (LLM + NLI)
-- Environment: Python 3.11, PyTorch 2.6.0, Linux
+All experiments were run on **Google Colab Pro**:
+
+- **Cenliea** used **NVIDIA L4 GPUs**
+- **Cenliea+** used **NVIDIA A100 GPUs**
+
+Average per-sample runtime:
+
+| Pipeline   | Phase                        | Time / Sample |
+|------------|------------------------------|----------------|
+| Cenliea    | NLI Embedding                | 0.055 sec      |
+| Cenliea+   | LLM Inference + NLI Embedding| 0.421 sec      |
 
 ---
 
