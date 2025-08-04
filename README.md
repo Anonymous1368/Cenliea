@@ -26,7 +26,7 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 
 ## 🧱 Components
 
-### [`dataset_preparation/`](./dataset_preparation)
+### [1. `dataset_preparation/`](./dataset_preparation)
 
 - Converts RDF/XML files into structured JSON
 - Extracts direct and one-hop features
@@ -36,9 +36,9 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 📖 See [`dataset_preparation/README.md`](./dataset_preparation/README.md)
 
 ---
-### [`vectorization/`](./vectorization)
+### [2. `vectorization/`](./vectorization)
 
-#### [`Cenliea/`](./vectorization/Cenliea)
+#### [2.1. `Cenliea/`](./vectorization/Cenliea)
 
 - Phase 1 of Cenliea: Bidirectional NLI embeddings using [`MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7`](https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7)
 - Loads `.parquet` input datasets and outputs embeddings per pair
@@ -48,7 +48,7 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 
 ---
 
-#### [`Cenliea_plus/`](./vectorization/Cenliea_plus)
+#### [2.2. `Cenliea_plus/`](./vectorization/Cenliea_plus)
 
 - Optional Phase 2: LLM-based alignment justification using [`mistralai/Mistral-7B-Instruct-v0.2`](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2)
 - Generates premise-hypothesis pairs from structured features
@@ -59,7 +59,7 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 
 ---
 
-### [`ea_classifier/`](./ea_classifier)
+### [3. `ea_classifier/`](./ea_classifier)
 
 - Train and test a lightweight binary classifier using NLI or NLI+LLM embeddings.
 - Includes:
