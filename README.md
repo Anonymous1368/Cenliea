@@ -8,6 +8,10 @@ This repository provides the complete codebase for **Cenliea** and **Cenliea+**,
    https://openreview.net/forum?id=v4Fnw1oySH
 ---
 
+## 🧭 Pipeline Overview
+
+<img src="assets/AAAI_Diagram.png" alt="CENLIEA Pipeline" width="700"/>
+
 ## 📌 Overview
 
 Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
