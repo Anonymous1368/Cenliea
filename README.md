@@ -1,4 +1,4 @@
-# Cenliea
+# Cenliea: Cross-Encoder NLI-based embedding for Entity Alignment
 
 Code Appendix for the Paper [Cenliea: A Cross-Encoder NLI Framework Enhanced by LLM-Based Reasoning for Transferable, Domain-Agnostic Entity Alignment](https://openreview.net/forum?id=v4Fnw1oySH) sumbitted for AAAI 2026.
 
