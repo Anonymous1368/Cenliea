@@ -1,0 +1,151 @@
+# Entity Alignment Dataset Preprocessing Pipeline
+
+This repository provides the full pipeline for generating structured inputs for Cenliea entity alignment pipeline. It supports:
+
+- ✅ Parsing RDF input data from `.ttl` or `.xml` formats  
+- ✅ Extracting structured attribute and neighborhood features  
+- ✅ Generating **hard negative samples** via `tiktoken`-based GPT similarity  
+- ✅ Creating JSONL and `.parquet` datasets, **ready for NLI-based vectorization**
+
+This code was used in our paper for **structured input generation**.
+---
+
+## 📁 Project Structure
+
+```
+├── raw_files/                    # Your RDF input files (source.xml, target.xml, reference.xml)
+├── EALLM_inputs/                # Intermediate inputs (triples, pos/neg splits, etc.)
+├── Mixed_32k_no_dupes/         # Final merged dataset shards (JSON + Parquet)
+│   ├── train/                  
+│   ├── test/                   
+│   └── test_imb/               
+├── run.sh    # Main script to run the full preprocessing pipeline
+│   ├── Param.py                     # Dataset and format configuration
+│   ├── 1_convert_rdf_to_ntriples.py          # Step 1: Converts RDF to ntriples and extracts ground truth
+│   ├── 2_generate_structured_pos_neg_samples.py  # Step 2: Structured input + hard negative generation
+│   └── 3_merge_and_shard_datasets.py                 # Step 3: Merges and shards datasets
+├── 4_format_json_to_parquet.py  # JSON → Parquet converter
+```
+
+> ⚠️ The first three scripts are automatically invoked in order by `run.sh`. You can then run 4_format_json_to_parquet.py to create parquet files necessary for Cenliea pipeline.
+
+---
+
+## 📦 Setup Instructions
+
+### ✅ 1. Install Requirements
+
+Use a virtual environment and install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Dependencies include:
+- `rdflib`
+- `pandas`
+- `scikit-learn`
+- `datasets`
+- `tiktoken`
+
+(*This list currently reflects only the dataset preparation stage. More dependencies on vectorization scripts are included.*)
+
+---
+
+## 🚀 Run the Pipeline
+
+### Step 1: Prepare Your Input RDF Files
+
+Place your raw `.xml` or `.ttl` files under:
+
+```
+./raw_files/<DatasetName>/
+├── source.xml
+├── target.xml
+└── reference.xml
+```
+
+Set the dataset name in `Param.py`:
+
+```python
+DATASET = 'doremus'
+KG_FILES = ["source.xml", "target.xml"]
+ALIGN_FILE = "reference.xml"
+```
+
+---
+
+### Step 2: Run the Full Preprocessing Pipeline
+
+```bash
+bash run.sh
+```
+
+This will:
+- Convert RDF to ntriples
+- Generate structured input with positive/negative samples
+- Merge and shard multiple datasets if needed
+- Output JSON files
+
+Example output (`json`-ready row):
+
+```json
+{
+  "entity1_text": "Entity 1 direct features:\n1. p102 has title: concerto de chambre,...",
+  "entity2_text": "Entity 2 direct features:\na. p102 has title: concerto de chambre,...",
+  "label": 1,
+  "GPT-similarity-score": 0.71,
+  "query": "...",
+  "dataset": "doremus"
+}
+```
+
+---
+
+### Step 3: Generate `.parquet` Files for Vectorization
+
+These files are **required** for loading data into the CENLIEA / CENLIEA+ NLI-based embedding pipeline:
+
+```bash
+python 4_format_json_to_parquet.py -dp ./Mixed_dataset
+```
+
+You’ll find one `.parquet` file per shard:
+```
+Mixed_dataset/test/shard0.parquet
+Mixed_dataset/train/shard0.parquet
+...
+```
+
+---
+
+## 🧾 Output Format
+
+Each row (in Parquet) includes:
+
+| Field | Description |
+|-------|-------------|
+| `entities` | URIs of aligned pair |
+| `self-attr-val` | Direct attributes of both entities |
+| `1hop-attr-val` | 1-hop neighbor features |
+| `label` | 1 = aligned, 0 = not aligned |
+| `GPT-similarity-score` | Token-based cosine similarity using `tiktoken` |
+| `query` | Full natural language input prompt |
+| `entity1_text` / `entity2_text` | Flattened versions used for NLI embedding |
+
+
+
+---
+
+## 🧠 Next Step: NLI Vectorization (CENLIEA / CENLIEA+)
+
+Read the `.parquet` files with:
+
+```python
+from datasets import load_dataset
+dataset = load_dataset("parquet", data_files="Mixed_dataset/test/shard0.parquet", split="train")
+```
+
+Each row's `entity1_text` and `entity2_text` can be passed to an NLI model for embedding or inference.
+
+---
