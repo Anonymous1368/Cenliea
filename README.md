@@ -91,6 +91,27 @@ login()
 
 ---
 
+## 🧪 Reproducibility & Experimental Setup
+
+- Binary classifiers are trained on 768-dimensional NLI embeddings produced by the [Cenliea](./cenliea/) and [Cenliea+](./cenliea_plus/) pipelines.
+- Lightweight MLP architectures were tuned using `GridSearchCV` with 4-fold cross-validation, optimizing positive-class F1-score.
+- Final models:
+  - **Cenliea**: 128-64 MLP, ReLU activation, learning rate = 0.001
+  - **Cenliea+**: 64-16 MLP, Tanh activation, learning rate = 0.0005
+- LLM outputs were evaluated for stability. Repeated runs of **Cenliea+** showed minimal performance variance (≤±5%), confirming robustness.
+
+## 💻 Runtime Environment
+
+- Experiments conducted on Google Colab Pro:
+  - **Cenliea**: NVIDIA L4 GPU
+  - **Cenliea+**: NVIDIA A100 GPU
+- Average vectorization times:
+  - **Cenliea**: ~0.055s per sample (NLI inference only)
+  - **Cenliea+**: ~0.421s per sample (LLM + NLI)
+- Environment: Python 3.11, PyTorch 2.6.0, Linux
+
+---
+
 ## 📬 Contact
 
 This repository is part of an anonymous submission. Please use the OpenReview discussion page for questions or feedback.
