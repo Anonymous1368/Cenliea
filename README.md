@@ -38,7 +38,7 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 - Loads `.parquet` input datasets and outputs embeddings per pair
 - Outputs are cached for reuse or fallback scenarios in Cenliea+
 
-📖 See [`Cenliea_README.md`](./vectorization/Cenliea/README.md)
+📖 See [`Cenliea/README.md`](./vectorization/Cenliea/README.md)
 
 ---
 
@@ -49,7 +49,7 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 - Uses NLI to vectorize LLM-generated hypotheses
 - Automatically falls back to Phase 1 embeddings if LLM output is invalid
 
-📖 See [`Cenliea_plus_README.md`](./vectorization/Cenliea_plus/README.md)
+📖 See [`Cenliea_plus/README.md`](./vectorization/Cenliea_plus/README.md)
 
 ---
 
