@@ -1,4 +1,4 @@
-# 🧠 EA Classifier: Training and Evaluation
+# EA Classifier: Training and Evaluation
 
 This directory provides tools to **train** and **evaluate** a binary classifier on entity alignment data that has been vectorized via either:
 
