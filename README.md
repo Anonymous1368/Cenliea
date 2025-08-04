@@ -32,24 +32,24 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 ---
 ### [`vectorization/`](./vectorization)
 
-#### [`vectorization/Cenliea/`](./vectorization/Cenliea)
+#### [`Cenliea/`](./vectorization/Cenliea)
 
 - Phase 1 of Cenliea: Bidirectional NLI embeddings using [`MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7`](https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7)
 - Loads `.parquet` input datasets and outputs embeddings per pair
 - Outputs are cached for reuse or fallback scenarios in Cenliea+
 
-📖 See [`vectorization/Cenliea/README.md`](.vectorization/Cenliea/README.md)
+📖 See [`Cenliea_README.md`](./vectorization/Cenliea/README.md)
 
 ---
 
-#### [`vectorization/Cenliea_plus/`](./vectorization/Cenliea_plus)
+#### [`Cenliea_plus/`](./vectorization/Cenliea_plus)
 
 - Optional Phase 2: LLM-based alignment justification using [`mistralai/Mistral-7B-Instruct-v0.2`](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2)
 - Generates premise-hypothesis pairs from structured features
 - Uses NLI to vectorize LLM-generated hypotheses
 - Automatically falls back to Phase 1 embeddings if LLM output is invalid
 
-📖 See [`vectorization/Cenliea_plus/README.md`](./vectorization/Cenliea_plus/README.md)
+📖 See [`Cenliea_plus_README.md`](./vectorization/Cenliea_plus/README.md)
 
 ---
 
