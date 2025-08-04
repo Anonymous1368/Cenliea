@@ -44,7 +44,7 @@ Login to Hugging Face before running the script:
 from huggingface_hub import login
 login(token="your_token_here")
 ```
-
+🔑 You can create or retrieve your token at https://huggingface.co/settings/tokens
 ---
 
 ## 📌 Notes
