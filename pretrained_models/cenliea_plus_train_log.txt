@@ -1,0 +1,19 @@
+
+scikit-learn version: 1.6.1
+Loaded 31908 rows from "Mixed" dataset...
+
+Training …
+/usr/local/lib/python3.11/dist-packages/sklearn/neural_network/_multilayer_perceptron.py:691: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (150) reached and the optimization hasn't converged yet.
+warnings.warn(
+Training finished, evaluating on the same set just as a sanity check …
+precision    recall  f1-score   support
+
+0       0.88      0.92      0.90     15923
+1       0.92      0.88      0.90     15985
+
+accuracy                           0.90     31908
+macro avg       0.90      0.90      0.90     31908
+weighted avg       0.90      0.90      0.90     31908
+
+PR‑AUC on training set: 0.9631
+================================================================================
