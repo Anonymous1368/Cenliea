@@ -71,6 +71,32 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 
 ---
 
+### [4. `pretrained_classifiers/`](./pretrained_classifiers)
+
+- Contains pretrained lightweight binary classifiers trained on 768-D embeddings from **Cenliea** and **Cenliea+** pipelines.
+- Classifiers are stored as `.pkl` files:
+  - `best_sklearn_mlp_Cenliea.pkl`
+  - `best_sklearn_mlp_Cenliea_plus.pkl`
+- These models can be directly applied to new datasets **without retraining**.
+
+**To use:**
+1. Prepare and vectorize a new dataset using:
+   - [`dataset_preparation`](./dataset_preparation/)
+   - [`vectorization/Cenliea`](./vectorization/Cenliea) or [`vectorization/Cenliea_plus`](./vectorization/Cenliea_plus)
+
+2. Use the evaluation script in [`ea_classifier`](./ea_classifier) to test performance:
+```bash
+python test_binary_classifier.py \
+  --dp path/to/your/vectorized.csv \
+  --split test \
+  --model_path pretrained_classifiers/best_sklearn_mlp_Cenliea.pkl \
+  --output results_on_new_data.json
+```
+
+📖 See [`ea_classifier/README.md`](./ea_classifier/README.md) for argument details.
+
+---
+
 ## ⚙️ Setup
 
 Each module contains its own `requirements.txt`.
