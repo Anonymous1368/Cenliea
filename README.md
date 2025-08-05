@@ -71,7 +71,7 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 
 ---
 
-### [4. `pretrained_classifiers/`](./pretrained_classifiers)
+### [4. `pretrained_models/`](./pretrained_models)
 
 - Contains pretrained lightweight binary classifiers trained on 768-D embeddings from **Cenliea** and **Cenliea+** pipelines.
 - Classifiers are stored as `.pkl` files:
