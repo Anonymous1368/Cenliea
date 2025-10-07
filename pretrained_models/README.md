@@ -24,4 +24,4 @@ This pipeline supports fast and modular evaluation on any structured entity pair
 > 📦 **Datasets Used for Training**:
 > - OAEI Knowledge Graph Track v4: [Download](https://oaei.webdatacommons.org/tdrs/testdata/persistent/knowledgegraph/v4/knowledgegraph_v4.zip)
 > - SPIMBENCH: [Download](https://oaei.ontologymatching.org/2018/spimbench.html)
-> - AgroLD: [Paper](https://academic.oup.com/database/article/doi/10.1093/database/baab036/6272502)
+> - AgroLD: [Paper](https://academic.oup.com/database/article/doi/10.1093/database/baab036/6272502) [Download](https://github.com/DACE-DL/Create_Input_Data_to_EA_Models/tree/main/MultiKE/raw_files)
