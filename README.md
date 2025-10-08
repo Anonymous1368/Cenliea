@@ -1,6 +1,6 @@
 # Cenliea: Cross-Encoder NLI-based embedding for Entity Alignment
 
-Code Appendix for the Paper [Cenliea: A Cross-Encoder NLI Framework Enhanced by LLM-Based Reasoning for Transferable, Domain-Agnostic Entity Alignment](https://openreview.net/forum?id=v4Fnw1oySH) sumbitted for AAAI 2026.
+Code Appendix for the Paper **Cenliea: A Cross-Encoder NLI Framework Enhanced by LLM-Based Reasoning for Transferable, Domain-Agnostic Entity Alignment**.
 
 This repository provides the complete codebase for **Cenliea** and **Cenliea+**, two complementary pipelines for entity alignment (EA) across heterogeneous knowledge graphs (KGs). The framework combines structured input encoding, multilingual NLI-based embeddings, and LLM-augmented reasoning to offer a generalizable, explainable alignment approach.
 
