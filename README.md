@@ -149,4 +149,4 @@ Average per-sample runtime:
 
 ## 📬 Contact
 
-This repository is part of an anonymous submission. Please use the OpenReview discussion page for questions or feedback.
+This repository is part of an anonymous submission. 
