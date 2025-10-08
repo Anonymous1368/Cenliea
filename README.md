@@ -16,7 +16,7 @@ The **Cenliea** pipeline uses cross-encoder NLI embeddings to assess alignment b
 
 ## 🧭 Embedding Procedure
 
-<img src="assests/Embedding_procedure.png" alt="CENLIEA+ Embedding Procedure" width="400"/>
+<img src="assests/Embedding_procedure.png" alt="CENLIEA+ Embedding Procedure" width="500"/>
 
 ## 📌 Overview
 
