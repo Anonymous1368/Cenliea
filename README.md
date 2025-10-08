@@ -81,7 +81,7 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 - Classifiers are stored as `.pkl` files:
   - `CENLIEA_mlp.pkl`
   - `CENLIEA_Plus_mlp.pkl`
-  - `CENLIEA_SBP15kZhEn_finetuned_mlp.pkl`
+  - `CENLIEA_SBP15kZhEn_finetuned_mlp.pkl` (A version of the **Cenliea MLP** fine-tuned using 10% of the ground-truth alignments from the unseen [**DBP15KZhEn**](https://github.com/nju-websoft/JAPE/tree/master/data) dataset.)
 - These models can be directly applied to new datasets **without retraining**.
 
 **To use:**
