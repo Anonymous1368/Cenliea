@@ -127,8 +127,8 @@ login()
 - Binary classifiers are trained on 768-dimensional NLI embeddings produced by the [Cenliea](./cenliea/) and [Cenliea+](./cenliea_plus/) pipelines.
 - Lightweight MLP architectures were tuned using `GridSearchCV` with 4-fold cross-validation, optimizing positive-class F1-score.
 - Final models:
-  - **Cenliea**: 128-64 MLP, ReLU activation, Initial learning rate = 0.001
-  - **Cenliea+**: 64-16 MLP, Tanh activation, Initial learning rate = 0.0005
+  - **Cenliea**: 64-16 MLP, ReLU activation, Optimizer: Adam, Initial learning rate = 0.001
+  - **Cenliea+**:  128-64 MLP, Tanh activation, Optimizer: Adam, Initial learning rate = 0.0005
 - LLM outputs were evaluated for stability. Repeated runs of **Cenliea+** showed minimal performance variance (≤±5%), confirming robustness.
 
 ## 💻 Runtime Environment
