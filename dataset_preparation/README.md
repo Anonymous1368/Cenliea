@@ -7,7 +7,7 @@ This repository provides the full pipeline for generating structured inputs for 
 - ✅ Generating **hard negative samples** via `tiktoken`-based GPT similarity  
 - ✅ Creating JSONL and `.parquet` datasets, **ready for NLI-based vectorization**
 
-This code was used in our paper for **structured input generation**.
+**Structured input generation**.
 ---
 
 ## 📁 Project Structure
