@@ -1,22 +1,20 @@
-# Cenliea: Cross-Encoder NLI-based embedding for Entity Alignment
+# Cenliea: A Cross-Encoder NLI Framework for Transferable, Domain-Agnostic Entity Alignment
 
-Code Appendix for the Paper **Cenliea: A Cross-Encoder NLI Framework Enhanced by LLM-Based Reasoning for Transferable, Domain-Agnostic Entity Alignment**.
+Code Appendix for the Paper **Cenliea: A Cross-Encoder NLI Framework for Transferable, Domain-Agnostic Entity Alignment**.
 
-This repository provides the complete codebase for **Cenliea** and **Cenliea+**, two complementary pipelines for entity alignment (EA) across heterogeneous knowledge graphs (KGs). The framework combines structured input encoding, multilingual NLI-based embeddings, and LLM-augmented reasoning to offer a generalizable, explainable alignment approach.
+This repository provides the complete codebase for **Cenliea**, a pipeline for entity alignment (EA) across heterogeneous knowledge graphs (KGs). The framework combines structured input encoding, multilingual NLI-based embeddings, and LLM-augmented reasoning to offer a generalizable, explainable alignment approach.
 
 The **Cenliea** pipeline uses cross-encoder NLI embeddings to assess alignment between entity descriptions from heterogeneous KGs. It leverages the [mDeBERTa-v3-base-xnli](https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7) model to generate joint semantic entailment vectors from structured entity features.
 
-**Cenliea+** extends this by prompting a large language model ([Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2)) to generate salient alignment hypotheses, which are then transformed into NLI inputs. The resulting embeddings are pooled and passed to a binary classifier to determine entity correspondence. 
-
 ---
 
-## 🧭 Cenliea and Cenliea+ Pipelines
+## 🧭 Cenliea Pipeline
 
 <img src="assests/AAAI_Diagram.png" alt="CENLIEA Pipeline" width="400"/>
 
 ## 🧭 Embedding Procedure
 
-<img src="assests/Embedding_procedure.png" alt="CENLIEA+ Embedding Procedure" width="500"/>
+<img src="assests/Embedding_procedure.png" alt="Cenliea Embedding Procedure" width="500"/>
 
 ## 📌 Overview
 
