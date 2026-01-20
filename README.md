@@ -22,7 +22,6 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 - 🧱 **Structured prompt construction** from RDF graphs
 - 🧠 **NLI vectorization** for entity pair similarity estimation
 - 📈 **Binary classifier training** for alignment detection
-- 🔍 **Cenliea+ (optional)**: LLM-generated explanations augment difficult or low-confidence cases
 
 ---
 
@@ -50,17 +49,6 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 
 ---
 
-#### [2.2. `Cenliea_plus/`](./vectorization/Cenliea_plus)
-
-- Optional Phase 2: LLM-based alignment justification using [`mistralai/Mistral-7B-Instruct-v0.2`](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2)
-- Generates premise-hypothesis pairs from structured features
-- Uses NLI to vectorize LLM-generated hypotheses
-- Automatically falls back to Phase 1 embeddings if LLM output is invalid
-
-📖 See [`Cenliea_plus/README.md`](./vectorization/Cenliea_plus/README.md)
-
----
-
 ### [3. `ea_classifier/`](./ea_classifier)
 
 - Train and test a lightweight binary classifier using NLI or NLI+LLM embeddings.
@@ -73,12 +61,11 @@ Cenliea introduces a neurosymbolic EA pipeline with the following core phases:
 
 ---
 
-### [4. `pretrained_models/`](./pretrained_models)
+### [4. `pretrained_model/`](./pretrained_model)
 
-- Contains pretrained lightweight binary classifiers trained on 768-D embeddings from **Cenliea** and **Cenliea+** pipelines.
-- Classifiers are stored as `.pkl` files:
+- Contains a pretrained lightweight binary classifier trained on 768-D embeddings from **Cenliea** pipeline.
+- Classifier is stored as `.pkl` files:
   - `CENLIEA_mlp.pkl`
-  - `CENLIEA_Plus_mlp.pkl`
   - `CENLIEA_SBP15kZhEn_finetuned_mlp.pkl` (A version of the **Cenliea MLP** fine-tuned using 10% of the ground-truth alignments from the unseen [**DBP15KZhEn**](https://github.com/nju-websoft/JAPE/tree/master/data) dataset.)
 - These models can be directly applied to new datasets **without retraining**.
 
@@ -126,22 +113,18 @@ login()
 - Lightweight MLP architectures were tuned using `GridSearchCV` with 3-fold cross-validation, optimizing positive-class F1-score.
 - Final models:
   - **Cenliea**: 64-16 MLP, ReLU activation, Optimizer: Adam, Initial learning rate = 0.001
-  - **Cenliea+**:  128-64 MLP, Tanh activation, Optimizer: Adam, Initial learning rate = 0.0005
-- LLM outputs were evaluated for stability. Repeated runs of **Cenliea+** showed minimal performance variance (≤±5%), confirming robustness.
 
 ## 💻 Runtime Environment
 
 All experiments were run on **Google Colab Pro**:
 
 - **Cenliea** used **NVIDIA L4 GPUs**
-- **Cenliea+** used **NVIDIA A100 GPUs**
 
 Average per-sample runtime:
 
 | Pipeline   | Phase                        | Time / Sample |
 |------------|------------------------------|----------------|
 | Cenliea    | NLI Embedding                | 0.055 sec      |
-| Cenliea+   | LLM Inference + NLI Embedding| 0.421 sec      |
 
 ---
 
